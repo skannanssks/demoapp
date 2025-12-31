@@ -9,3 +9,7 @@
 /obj/Debug/net6.0/demoapp.AssemblyInfoInputs.cache
 /obj/Debug/net6.0/demoapp.assets.cache
 /obj/Debug/net6.0/demoapp.GeneratedMSBuildEditorConfig.editorconfig
+/bin
+/Properties/PublishProfiles
+/demoapp.csproj.user
+/obj
