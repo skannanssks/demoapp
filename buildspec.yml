@@ -8,6 +8,7 @@ phases:
     commands:
       - echo Before restore
       - echo Restore started on the 'date'
+      - echo 'hello'
       - dotnet restore demoapp.csproj     
   build:
     commands:
