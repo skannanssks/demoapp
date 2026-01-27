@@ -38,9 +38,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          aws eks update-kubeconfig \
-            --region $AWS_REGION \
-            --name $CLUSTER_NAME
+          aws eks update-kubeconfig  --region $AWS_REGION  --name $CLUSTER_NAME
 
       - name: Update image tag in deployment
         run: |
