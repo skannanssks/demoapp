@@ -3,7 +3,7 @@ name: Deploy .NET Core to Elastic Beanstalk
 on:
   push:
     branches:
-      - main
+      - master
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   EB_APP_NAME: ${{ secrets.EB_APP_NAME }}
