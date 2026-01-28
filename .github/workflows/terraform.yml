@@ -5,7 +5,7 @@ name: "Terraform S3 Bucket CI/CD"
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   terraform:
