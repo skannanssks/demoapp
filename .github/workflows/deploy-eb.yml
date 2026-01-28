@@ -3,7 +3,7 @@ name: Build and Deploy .NET to AWS Elastic Beanstalk
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
