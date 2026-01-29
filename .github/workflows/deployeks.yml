@@ -35,13 +35,16 @@ jobs:
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-
+      - name: Verify AWS identity (debug)
+        run: aws sts get-caller-identity
       - name: Update kubeconfig
         run: |
           echo "Region :" ${{ env.AWS_REGION }}
           echo "Cluster = $CLUSTER_NAME"
           aws eks update-kubeconfig --region $AWS_REGION   --name $CLUSTER_NAME
-
+     
+      - name: Verify cluster access
+        run: kubectl get nodes
 
       - name: Update image tag in deployment
         run: |
