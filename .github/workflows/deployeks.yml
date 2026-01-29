@@ -38,7 +38,7 @@ jobs:
 
       - name: Update kubeconfig
         run: |
-          echo "Region : $AWS_REGION"
+          echo "Region :" ${{ env.AWS_REGION }}
           echo "Cluster name is: $CLUSTER_NAME"
           aws eks update-kubeconfig  --region $AWS_REGION  --name myEKScluster
 
