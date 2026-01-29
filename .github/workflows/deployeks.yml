@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AWS_REGION: ${{ secrets.AWS_REGION }}
-      CLUSTER_NAME: ${{ secrets.EKS_CLUSTER_NAME }}
+      AWS_REGION: ap-south-1
+      CLUSTER_NAME: my-eks-cluster
       ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
       ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
       IMAGE_TAG: ${{ github.sha }}
@@ -39,8 +39,9 @@ jobs:
       - name: Update kubeconfig
         run: |
           echo "Region :" ${{ env.AWS_REGION }}
-          echo "Cluster name is: $CLUSTER_NAME"
-          aws eks update-kubeconfig --name myEKScluster --region ap-south-1
+          echo "Cluster = $CLUSTER_NAME"
+          aws eks update-kubeconfig --region $AWS_REGION   --name $CLUSTER_NAME
+
 
       - name: Update image tag in deployment
         run: |
