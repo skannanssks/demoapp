@@ -40,7 +40,7 @@ jobs:
         run: |
           echo "Region :" ${{ env.AWS_REGION }}
           echo "Cluster name is: $CLUSTER_NAME"
-          aws eks update-kubeconfig  --region $AWS_REGION  --name myEKScluster
+          aws eks update-kubeconfig --name myEKScluster --region ap-south-1
 
       - name: Update image tag in deployment
         run: |
