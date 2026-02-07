@@ -33,36 +33,5 @@ stages:
         command: build
         projects: '**/*.csproj'
         arguments: '--configuration $(buildConfiguration)' # Update this to match your needs
-     - script: 
-        echo Artifact name is $(artifactName)
-        echo Building in $(buildConfiguration) mode
-        echo jobvariable $(jobVariable)
-        echo $(clientid)
-        echo Build sample
-     - script:
-        echo Predefined variables print
-        echo "Building on branch $(Build.SourceBranch)"
-        echo "Current build number $(Build.BuildNumber)"
-        echo "Definition name $(Build.DefinitionName)"
-- stage: Publish 
-  displayName: Publish stage
-  variables:
-  - group: demoVG
-  jobs:  
-  - job: Publish
-    displayName: Publish the artifact
-    variables:
-     secretVariable: $(mysecVar)
-     secretVariable1: $(pwd)
-    steps:
-    - task: DotNetCoreCLI@2
-      inputs:
-        command: publish
-        publishWebProjects: True
-        arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-        zipAfterPublish: True
-
-    - script: 
-        echo VG name is $(clientid)
-        echo VG Tenantid $(tenantid)
-        echo secretvariable is $(mysecVar)
+    
+        
